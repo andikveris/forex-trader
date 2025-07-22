@@ -7,8 +7,9 @@ import sys
 import os
 from datetime import datetime
 
-# Add src to path
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
+# Add repository root to path so `src` package can be imported when tests are
+# executed directly or via pytest.
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from src.backtest.config_validator import ConfigValidator, create_validated_config, validate_config_parameters
 from src.backtest.enhanced_backtester import BacktestConfig
