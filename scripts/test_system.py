@@ -64,7 +64,8 @@ def test_configuration():
     import yaml
     
     # Test loading main config file
-    with open('config.yaml', 'r') as f:
+    config_path = Path(__file__).resolve().parent.parent / 'config' / 'config.yaml'
+    with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
     
     assert 'leverage' in config
