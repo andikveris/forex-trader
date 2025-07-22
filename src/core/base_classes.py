@@ -395,7 +395,8 @@ class BaseExecutionEngine(BaseComponent, IExecutionEngine):
             self.closed_trades.append(trade)
             
             # Update account balance
-            self._update_account_balance(profit_loss - exit_commission)
+            # Profit/loss already accounts for all commissions, so apply it directly
+            self._update_account_balance(profit_loss)
             
             self.logger.info(f"Position closed: {trade_id} - P&L: {profit_loss:.2f}")
             return trade
